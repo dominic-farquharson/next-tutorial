@@ -35,3 +35,25 @@ styled-jsx is bundled.
 Place images within a `static` directory in your project's root. You can then reference it with `/static` URLS.
 
 Ex: `/static/my-image.png`
+
+### Populating <head>
+
+`Head` component is provided to append elements to the `<head>` of the page.
+
+Use the key prop to avoid duplicates. Onlhy the second meta element will be rendered.
+
+```html
+import Head from 'next/head'
+export default () => (
+  <div>
+    <Head>
+      <title>My page title</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+    </Head>
+    <Head>
+      <meta name="viewport" content="initial-scale=1.2, width=device-width" key="viewport" />
+    </Head>
+    <p>Hello world!</p>
+  </div>
+)
+```
